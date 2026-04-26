@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hair_cut/Screens/forget_pass.dart';
 import 'package:hair_cut/Screens/registreation_f.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
+import 'package:hair_cut/Utils/passtxt_field.dart';
 import 'package:hair_cut/Utils/txt_field.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -75,22 +76,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(color: Color(0xff363062)),
                       ),
                       SizedBox(height: 10),
-                      TextFormField(
-                        controller: emailcontroller,
-                        decoration: InputDecoration(
-                          suffixIcon: Icon(
-                            Icons.remove_red_eye,
-                            color: Color(0xff363062),
-                          ),
-                          prefixIcon: Icon(Icons.key, color: Color(0xff363062)),
-                          hintText: "*******",
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
+                      PasstxtField(
+                        prefixIcon: Icons.key,
+                        hintText: "password",
+                        suffixIcon: Icons.remove_red_eye,
                       ),
                       Align(
                         alignment: Alignment.topRight,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hair_cut/Screens/home_screen.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
+import 'package:hair_cut/botom_br.dart';
 
 class AthanicationCode extends StatefulWidget {
   const AthanicationCode({super.key});
@@ -31,9 +33,15 @@ class _AthanicationCodeState extends State<AthanicationCode> {
                 style: TextStyle(color: Color(0xff6B7280)),
               ),
 
-              ElevatedBu(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>))
-              }, name: "send"),
+              ElevatedBu(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => BotomBr()),
+                  );
+                },
+                name: "send",
+              ),
               Text('Have not receive code?'),
             ],
           ),
