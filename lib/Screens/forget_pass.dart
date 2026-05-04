@@ -37,14 +37,17 @@ class _ForgetPassState extends State<ForgetPass> {
               SizedBox(height: 10),
               TxtField(hintText: "Joesamanta@gmail.com", icon: Icons.email),
               SizedBox(height: 30),
-              ElevatedBu(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => AthanicationCode()),
-                  );
-                },
-                name: "send",
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: ElevatedBu(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => AthanicationCode()),
+                    );
+                  },
+                  name: "send",
+                ),
               ),
             ],
           ),

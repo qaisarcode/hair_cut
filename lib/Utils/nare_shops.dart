@@ -16,28 +16,59 @@ class NareShops extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 339,
-      decoration: BoxDecoration(color: Color(0xffFFFFFF)),
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(color: Color(0xffFFFFFF)),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(image, height: 100),
-          SizedBox(width: 5),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Image.asset(image, fit: BoxFit.cover),
+          ),
+          const SizedBox(width: 10),
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(sname),
+                Text(
+                  sname,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 6),
                 Row(
                   children: [
-                    Icon(Icons.location_on, size: 20, color: Color(0xff8683A1)),
-                    SizedBox(width: 5),
-                    Text(duration, style: TextStyle(color: Color(0xff8683A1))),
+                    const Icon(
+                      Icons.location_on,
+                      size: 20,
+                      color: Color(0xff8683A1),
+                    ),
+                    const SizedBox(width: 5),
+                    Expanded(
+                      child: Text(
+                        duration,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(color: Color(0xff8683A1)),
+                      ),
+                    ),
                   ],
                 ),
+                const SizedBox(height: 6),
                 Row(
                   children: [
-                    Icon(Icons.star, size: 20, color: Color(0xff8683A1)),
-                    SizedBox(width: 5),
-                    Text(reating, style: TextStyle(color: Color(0xff8683A1))),
+                    const Icon(Icons.star, size: 20, color: Color(0xff8683A1)),
+                    const SizedBox(width: 5),
+                    Expanded(
+                      child: Text(
+                        reating,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(color: Color(0xff8683A1)),
+                      ),
+                    ),
                   ],
                 ),
               ],

@@ -33,16 +33,23 @@ class _AthanicationCodeState extends State<AthanicationCode> {
                 style: TextStyle(color: Color(0xff6B7280)),
               ),
 
-              ElevatedBu(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => BotomBr()),
-                  );
-                },
-                name: "send",
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: ElevatedBu(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => BotomBr()),
+                    );
+                  },
+                  name: "send",
+                ),
               ),
-              Text('Have not receive code?'),
+              SizedBox(height: 10),
+              Align(
+                alignment: Alignment.center,
+                child: Text('Have not receive code?'),
+              ),
             ],
           ),
         ),
