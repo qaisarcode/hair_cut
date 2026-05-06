@@ -72,7 +72,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     const Icon(Icons.location_on),
                     const Text("Yogyakarta"),
                     const Spacer(),
-                    CircleAvatar(radius: 20, backgroundColor: Color(0xffEBF0F5)),
+                    CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Color(0xffEBF0F5),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 12),
@@ -126,7 +129,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xff363062),
-                            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 10,
+                            ),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -134,7 +140,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {},
                           child: Text(
                             "Booking Now",
-                            style: TextStyle(color: Color(0xffFFFFFF), fontSize: 14),
+                            style: TextStyle(
+                              color: Color(0xffFFFFFF),
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),
@@ -186,7 +195,104 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadiusGeometry.circular(10),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xffFFFFFF),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 18,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 18,
+                                          vertical: 16,
+                                        ),
+                                        width: double.infinity,
+                                        height: 80,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xffEDEFFB),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              padding: EdgeInsets.all(12),
+                                              width: 48,
+
+                                              decoration: BoxDecoration(
+                                                color: Color(0xffFFFFFF),
+                                              ),
+                                              child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                  minimumSize: Size(24, 24),
+                                                  padding: EdgeInsets.zero,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadiusGeometry.circular(
+                                                          5,
+                                                        ),
+                                                  ),
+                                                  backgroundColor: Color(
+                                                    0xffFFA72A,
+                                                  ),
+                                                ),
+                                                onPressed: () {},
+                                                child: Icon(
+                                                  Icons.question_mark_sharp,
+                                                  color: Color(0xffFFFFFF),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(width: 20),
+                                            Text(
+                                              "Filter",
+                                              style: TextStyle(
+                                                color: Color(0xff111827),
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Spacer(),
+                                            ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                minimumSize: Size(24, 24),
+                                                padding: EdgeInsets.zero,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadiusGeometry.circular(
+                                                        5,
+                                                      ),
+                                                ),
+                                                backgroundColor: Color(
+                                                  0xffFFA72A,
+                                                ),
+                                              ),
+                                              onPressed: () {},
+                                              child: Icon(
+                                                Icons.question_mark_sharp,
+                                                color: Color(0xffFFFFFF),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Text("General Category"),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
                         child: Icon(
                           Icons.tune_outlined,
                           color: Color(0xffFFFFFF),

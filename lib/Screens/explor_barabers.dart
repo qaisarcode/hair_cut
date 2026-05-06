@@ -153,24 +153,49 @@ class _ExplorBarabersState extends State<ExplorBarabers> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: data.length,
-                  itemBuilder: (context, index) {
-                    final shop = data[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 12),
-                      child: NareShops(
-                        image: shop.image,
-                        sname: shop.sname,
-                        duration: shop.duration,
-                        reating: shop.reating,
+                DefaultTabController(
+                  initialIndex: 1,
+                  length: 4,
+                  child: Column(
+                    children: [
+                      TabBar(
+                        tabs: [
+                          Tab(text: "services"),
+                          Tab(text: "Basic haircut"),
+                          Tab(text: "Color"),
+                          Tab(text: "Treat"),
+                        ],
                       ),
-                    );
-                  },
+                      SizedBox(
+                        height: 800,
+                        child: TabBarView(
+                          children: [
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: data.length,
+                              itemBuilder: (context, index) {
+                                final shop = data[index];
+                                return Padding(
+                                  padding: const EdgeInsets.only(bottom: 12),
+                                  child: NareShops(
+                                    image: shop.image,
+                                    sname: shop.sname,
+                                    duration: shop.duration,
+                                    reating: shop.reating,
+                                  ),
+                                );
+                              },
+                            ),
+                            Text("name"),
+                            Text("name"),
+                            Text("name"),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 20),
               ],
             ),
           ),
