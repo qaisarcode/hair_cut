@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hair_cut/Screens/barber_detaills.dart';
 import 'package:hair_cut/Screens/explor_barabers.dart';
+import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/list_button.dart';
+import 'package:hair_cut/Utils/name_con.dart';
 import 'package:hair_cut/Utils/nare_shops.dart';
 import 'package:hair_cut/Utils/recomanded_shop_co.dart';
 
@@ -12,6 +15,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int tiselectedindex = 0;
+  double _rating = 3.0;
+  int iselectedindex = 0;
   final PageController _pageController = PageController();
   int _currentPage = 0;
   final List<NareShops> data = [
@@ -199,39 +205,68 @@ class _HomeScreenState extends State<HomeScreen> {
                           showModalBottomSheet(
                             context: context,
                             builder: (context) {
-                              return Container(
-                                decoration: BoxDecoration(
-                                  color: Color(0xffFFFFFF),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 18,
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal: 18,
-                                          vertical: 16,
-                                        ),
-                                        width: double.infinity,
-                                        height: 80,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xffEDEFFB),
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              padding: EdgeInsets.all(12),
-                                              width: 48,
+                              return StatefulBuilder(
+                                builder: (context, setState) {
+                                  return Container(
+                                    decoration: BoxDecoration(
+                                      color: Color(0xffFFFFFF),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 18,
+                                            vertical: 16,
+                                          ),
+                                          width: double.infinity,
+                                          height: 80,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xffEDEFFB),
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                padding: EdgeInsets.all(12),
+                                                width: 48,
 
-                                              decoration: BoxDecoration(
-                                                color: Color(0xffFFFFFF),
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xffFFFFFF),
+                                                ),
+                                                child: ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                    minimumSize: Size(24, 24),
+                                                    padding: EdgeInsets.zero,
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadiusGeometry.circular(
+                                                            5,
+                                                          ),
+                                                    ),
+                                                    backgroundColor: Color(
+                                                      0xffFFA72A,
+                                                    ),
+                                                  ),
+                                                  onPressed: () {},
+                                                  child: Icon(
+                                                    Icons.question_mark_sharp,
+                                                    color: Color(0xffFFFFFF),
+                                                  ),
+                                                ),
                                               ),
-                                              child: ElevatedButton(
+                                              SizedBox(width: 20),
+                                              Text(
+                                                "Filter",
+                                                style: TextStyle(
+                                                  color: Color(0xff111827),
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Spacer(),
+                                              ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
                                                   minimumSize: Size(24, 24),
                                                   padding: EdgeInsets.zero,
@@ -241,54 +276,180 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           5,
                                                         ),
                                                   ),
-                                                  backgroundColor: Color(
-                                                    0xffFFA72A,
-                                                  ),
+                                                  backgroundColor:
+                                                      Color.fromARGB(
+                                                        0,
+                                                        192,
+                                                        154,
+                                                        154,
+                                                      ),
                                                 ),
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
                                                 child: Icon(
-                                                  Icons.question_mark_sharp,
+                                                  Icons.cancel_sharp,
                                                   color: Color(0xffFFFFFF),
                                                 ),
                                               ),
-                                            ),
-                                            SizedBox(width: 20),
-                                            Text(
-                                              "Filter",
-                                              style: TextStyle(
-                                                color: Color(0xff111827),
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                            Spacer(),
-                                            ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                minimumSize: Size(24, 24),
-                                                padding: EdgeInsets.zero,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadiusGeometry.circular(
-                                                        5,
-                                                      ),
-                                                ),
-                                                backgroundColor: Color(
-                                                  0xffFFA72A,
-                                                ),
-                                              ),
-                                              onPressed: () {},
-                                              child: Icon(
-                                                Icons.question_mark_sharp,
-                                                color: Color(0xffFFFFFF),
-                                              ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      Text("General Category"),
-                                    ],
-                                  ),
-                                ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 18,
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                "General Category",
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff111827),
+                                                ),
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  NameCon(
+                                                    name: "Basic haircut",
+                                                    iselectd:
+                                                        iselectedindex == 1,
+                                                    ontap: () {
+                                                      setState(() {
+                                                        iselectedindex = 1;
+                                                      });
+                                                    },
+                                                  ),
+                                                  NameCon(
+                                                    name: "Coloring",
+                                                    iselectd:
+                                                        iselectedindex == 2,
+                                                    ontap: () {
+                                                      setState(() {
+                                                        iselectedindex = 2;
+                                                      });
+                                                    },
+                                                  ),
+                                                  NameCon(
+                                                    name: "Treatment",
+                                                    iselectd:
+                                                        iselectedindex == 3,
+                                                    ontap: () {
+                                                      setState(() {
+                                                        iselectedindex = 3;
+                                                      });
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  NameCon(
+                                                    name: "Massage",
+                                                    iselectd:
+                                                        iselectedindex == 4,
+                                                    ontap: () {
+                                                      setState(() {
+                                                        iselectedindex = 4;
+                                                      });
+                                                    },
+                                                  ),
+                                                  NameCon(
+                                                    name: "Kids haircut",
+                                                    iselectd:
+                                                        iselectedindex == 5,
+                                                    ontap: () {
+                                                      setState(() {
+                                                        iselectedindex = 5;
+                                                      });
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                              Text(
+                                                "Rating Barber",
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff111827),
+                                                ),
+                                              ),
+                                              const SizedBox(height: 8),
+
+                                              // ✅ Stars row
+                                              Row(
+                                                children: List.generate(5, (
+                                                  index,
+                                                ) {
+                                                  return Icon(
+                                                    index < _rating
+                                                        ? Icons.star
+                                                        : Icons.star_border,
+                                                    color: Color(0xffFFA72A),
+                                                    size: 32,
+                                                  );
+                                                }),
+                                              ),
+                                              const SizedBox(height: 8),
+
+                                              // ✅ Slider
+                                              SliderTheme(
+                                                data: SliderTheme.of(context)
+                                                    .copyWith(
+                                                      activeTrackColor: Color(
+                                                        0xff363062,
+                                                      ),
+                                                      inactiveTrackColor: Color(
+                                                        0xffCBD5E1,
+                                                      ),
+                                                      thumbColor: Color(
+                                                        0xff363062,
+                                                      ),
+                                                      overlayColor: Color(
+                                                        0xff363062,
+                                                      ).withOpacity(0.2),
+                                                      trackHeight: 4,
+                                                    ),
+                                                child: Slider(
+                                                  value: _rating,
+                                                  min: 1,
+                                                  max: 5,
+                                                  divisions: 4, // 1, 2, 3, 4, 5
+                                                  label:
+                                                      "${_rating.toInt()} Star",
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      // StatefulBuilder ka setState
+                                                      _rating = value;
+                                                    });
+                                                  },
+                                                ),
+                                              ),
+                                              Text(
+                                                "Distance",
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff111827),
+                                                ),
+                                              ),
+                                              ElevatedBu(
+                                                onPressed: () {},
+                                                name: "Apply",
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
                               );
                             },
                           );
@@ -367,6 +528,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           buttonname: "Booking",
                           ricon: Icons.star,
                           licon: Icons.location_on,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BarberDetaills(),
+                              ),
+                            );
+                          },
                         ),
                       );
                     },
