@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int tiselectedindex = 0;
   double _rating = 3.0;
   int iselectedindex = 0;
   final PageController _pageController = PageController();

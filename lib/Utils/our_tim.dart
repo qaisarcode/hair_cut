@@ -18,6 +18,23 @@ class OurTim extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(leading: CircleAvatar(backgroundImage: AssetImage(image)));
+    return ListTile(
+      leading: CircleAvatar(radius: 30, backgroundImage: AssetImage(image)),
+      title: Text(
+        name,
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+      subtitle: Text(subtitle),
+      trailing: SizedBox(
+        width: 80,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Expanded(child: Icon(Icons.star)),
+            Expanded(child: Text(addyou, style: TextStyle(fontSize: 16))),
+          ],
+        ),
+      ),
+    );
   }
 }
