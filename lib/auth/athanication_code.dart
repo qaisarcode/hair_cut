@@ -33,17 +33,14 @@ class _AthanicationCodeState extends State<AthanicationCode> {
                 style: TextStyle(color: Color(0xff6B7280)),
               ),
 
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: ElevatedBu(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => BotomBr()),
-                    );
-                  },
-                  name: "send",
-                ),
+              ElevatedBu(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => BotomBr()),
+                  );
+                },
+                name: "Send",
               ),
               SizedBox(height: 10),
               Align(

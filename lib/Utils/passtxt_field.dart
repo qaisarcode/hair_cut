@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class PasstxtField extends StatelessWidget {
   final String hintText;
   final IconData prefixIcon;
-  final IconData suffixIcon;
-  const PasstxtField({
+  IconData? suffixIcon;
+  PasstxtField({
     super.key,
     required this.prefixIcon,
     required this.hintText,
-    required this.suffixIcon,
+    this.suffixIcon = null,
   });
 
   @override

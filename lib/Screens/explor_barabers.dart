@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hair_cut/Utils/nare_shops.dart';
 import 'package:hair_cut/Utils/recomanded_shop_co.dart';
+import 'package:hair_cut/res/app_images.dart';
 
 class ExplorBarabers extends StatefulWidget {
   const ExplorBarabers({super.key});
@@ -14,7 +15,7 @@ class _ExplorBarabersState extends State<ExplorBarabers> {
   int _currentPage = 0;
   final List<NareShops> data = [
     NareShops(
-      image: "assets/images/sho1.png",
+      image: AppImages.shop1,
       sname: "Alana Barbershop - Haircut massage & Spa ",
       duration: "Banguntapan (5 km)",
       reating: "4.5",
@@ -76,7 +77,7 @@ class _ExplorBarabersState extends State<ExplorBarabers> {
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: RecomandedShopCo(
-                          image1: "assets/images/shop1.png",
+                          image1: "assets/images/sho4.png",
                           name: "Master piece Barbershop - Haircut styling",
                           location: "Joga Expo Centre (2 km)",
                           reating: "5.0",
