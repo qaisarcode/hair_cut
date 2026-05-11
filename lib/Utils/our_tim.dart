@@ -11,7 +11,7 @@ class OurTim extends StatelessWidget {
     super.key,
     required this.image,
     required this.name,
-    this.icon,
+    this.icon = null,
     required this.subtitle,
     required this.addyou,
   });
@@ -30,7 +30,7 @@ class OurTim extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Expanded(child: Icon(Icons.star)),
+            Expanded(child: Icon(icon)),
             Expanded(child: Text(addyou, style: TextStyle(fontSize: 16))),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hair_cut/Screens/barber_detaills.dart';
+import 'package:hair_cut/Screens/bookappoint.dart';
 import 'package:hair_cut/Screens/explor_barabers.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/list_button.dart';
@@ -142,7 +143,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (_) => Bookappoint()),
+                            );
+                          },
                           child: Text(
                             "Booking Now",
                             style: TextStyle(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hair_cut/Screens/bookappoint.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/our_tim.dart';
 import 'package:hair_cut/Utils/recomanded_shop_co.dart';
+import 'package:hair_cut/Utils/review_co.dart';
 
 class BarberDetaills extends StatefulWidget {
   const BarberDetaills({super.key});
@@ -40,30 +42,63 @@ class _BarberDetaillsState extends State<BarberDetaills> {
       name: "Basic haircut",
       subtitle: "Basic haircut & vitamint",
       addyou: "\$20",
+      icon: null,
     ),
     OurTim(
       image: "assets/images/c2.png",
       name: "Kids haircut",
       subtitle: "Special kids haircut",
       addyou: "\$15",
+      icon: null,
     ),
     OurTim(
       image: "assets/images/c3.png",
       name: "Hair coloring",
       subtitle: "Hair color treatment",
       addyou: "\$30",
+      icon: null,
     ),
     OurTim(
       image: "assets/images/c4.png",
       name: "Hair treatment",
       subtitle: "Special full treatment",
       addyou: "\$10",
+      icon: null,
     ),
     OurTim(
       image: "assets/images/c5.png",
       name: "Special massage",
       subtitle: "Additional massage",
       addyou: "\$10",
+      icon: null,
+    ),
+  ];
+  final List<ReviewCo> rdata = [
+    ReviewCo(
+      image: "assets/images/r1.png",
+      name: "Alan Cartwright",
+      addreview: "Good service, recommendation for barber shop seekers",
+      reating: 4.0,
+    ),
+    ReviewCo(
+      image: "assets/images/r2.png",
+      name: "Robert Gleichner",
+      addreview: "Place is not too far and the shaving results are good",
+      reating: 5.0,
+    ),
+    ReviewCo(
+      image: "assets/images/r3.png",
+      name: "Sergio Wilderman",
+      addreview:
+          "Price is quite affordable and the service is good, I am very satisfied",
+      reating: 4.0,
+    ),
+    ReviewCo(
+      image: "assets/images/r4.png",
+      name: "Miss Erik VonRueden",
+      addreview:
+          "Style of barbering here really follows the times, I like the service",
+      reating: 5.0,
     ),
   ];
   @override
@@ -187,6 +222,7 @@ class _BarberDetaillsState extends State<BarberDetaills> {
                                 name: tim.name,
                                 subtitle: tim.subtitle,
                                 addyou: tim.addyou,
+                                icon: tim.icon,
                               );
                             },
                           ),
@@ -223,6 +259,7 @@ class _BarberDetaillsState extends State<BarberDetaills> {
                                 name: t.name,
                                 subtitle: t.subtitle,
                                 addyou: t.addyou,
+                                icon: t.icon,
                               );
                             },
                           ),
@@ -232,11 +269,38 @@ class _BarberDetaillsState extends State<BarberDetaills> {
                     ),
                   ),
                   Center(child: Text("Shaduled")),
-                  Center(child: Text("Review")),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: rdata.length,
+                          itemBuilder: (context, index) {
+                            final r = rdata[index];
+                            return ReviewCo(
+                              image: r.image,
+                              name: r.name,
+                              addreview: r.addreview,
+                              reating: r.reating,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-            ElevatedBu(onPressed: () {}, name: "Booking Now"),
+            ElevatedBu(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Bookappoint()),
+                );
+              },
+              name: "Booking Now",
+            ),
             SizedBox(height: 20),
           ],
         ),
