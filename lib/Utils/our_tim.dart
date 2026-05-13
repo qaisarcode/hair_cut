@@ -22,11 +22,12 @@ class OurTim extends StatelessWidget {
       leading: CircleAvatar(radius: 30, backgroundImage: AssetImage(image)),
       title: Text(
         name,
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),
       subtitle: Text(subtitle),
       trailing: SizedBox(
-        width: 80,
+        width: 60,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

@@ -50,7 +50,7 @@ class _InvoiceState extends State<Invoice> {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: double.infinity,
-              height: screenHeight * 0.4,
+              height: screenHeight * 0.43,
               decoration: BoxDecoration(
                 color: AppColor.white,
                 borderRadius: BorderRadius.only(
@@ -73,6 +73,7 @@ class _InvoiceState extends State<Invoice> {
                         Expanded(
                           child: Text(
                             "Master piece Barbershop - Haircut styling",
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
