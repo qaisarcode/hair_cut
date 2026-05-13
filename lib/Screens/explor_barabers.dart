@@ -54,6 +54,7 @@ class _ExplorBarabersState extends State<ExplorBarabers> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Explore Barbers", style: TextStyle(fontSize: 18)),
@@ -66,7 +67,7 @@ class _ExplorBarabersState extends State<ExplorBarabers> {
               children: [
                 const SizedBox(height: 12),
                 SizedBox(
-                  height: 300,
+                  height: screenHeight * 0.35,
                   child: PageView.builder(
                     controller: _pageController,
                     itemCount: 3,
@@ -168,7 +169,7 @@ class _ExplorBarabersState extends State<ExplorBarabers> {
                         ],
                       ),
                       SizedBox(
-                        height: 800,
+                        height: screenHeight * 0.8,
                         child: TabBarView(
                           children: [
                             ListView.builder(

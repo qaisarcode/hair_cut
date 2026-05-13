@@ -48,6 +48,7 @@ class _BookappointState extends State<Bookappoint> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(title: const Text("Book Appointment")),
       body: SingleChildScrollView(
@@ -102,7 +103,7 @@ class _BookappointState extends State<Bookappoint> {
             ),
             const SizedBox(height: 12),
             SizedBox(
-              height: 140,
+              height: screenHeight * 0.15,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: services.length,
@@ -129,8 +130,8 @@ class _BookappointState extends State<Bookappoint> {
                               ),
                               if (isSelected)
                                 Container(
-                                  width: 70,
-                                  height: 70,
+                                  width: screenHeight * 0.08,
+                                  height: screenHeight * 0.08,
                                   decoration: BoxDecoration(
                                     color: Colors.black.withOpacity(0.4),
                                     shape: BoxShape.circle,
@@ -189,7 +190,7 @@ class _BookappointState extends State<Bookappoint> {
                       : null,
                   child: Container(
                     width: 80,
-                    height: 40,
+                    height: screenHeight * 0.05,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: isSelected

@@ -16,11 +16,13 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         children: [
           Container(
             width: double.infinity,
+            height: screenHeight * 0.4,
             decoration: BoxDecoration(color: Color(0xffF99417)),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 30),
@@ -28,10 +30,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           Align(
-            alignment: AlignmentGeometry.bottomEnd,
+            alignment: Alignment.bottomCenter,
             child: Container(
               width: double.infinity,
-              height: 504,
+              height: screenHeight * 0.6,
               decoration: BoxDecoration(
                 color: Color(0xffFFFFFF),
                 borderRadius: BorderRadius.only(

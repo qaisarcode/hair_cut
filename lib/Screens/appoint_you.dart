@@ -32,6 +32,7 @@ class _AppointYouState extends State<AppointYou> {
   ];
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(0xffFFFFFF)),
@@ -45,7 +46,7 @@ class _AppointYouState extends State<AppointYou> {
         children: [
           Container(
             width: double.infinity,
-            height: 436,
+            height: screenHeight * 0.35,
             decoration: BoxDecoration(color: AppColor.blue),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -65,7 +66,7 @@ class _AppointYouState extends State<AppointYou> {
             alignment: AlignmentGeometry.bottomEnd,
             child: Container(
               width: double.infinity,
-              height: 560,
+              height: MediaQuery.of(context).size.height * 0.65,
               decoration: BoxDecoration(
                 color: AppColor.white,
                 borderRadius: BorderRadius.only(

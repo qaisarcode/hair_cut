@@ -63,6 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -95,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 16),
                 Container(
-                  height: 225,
+                  height: screenHeight * 0.25,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xffF99417),
@@ -163,8 +165,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         bottom: -20,
                         child: Image.asset(
                           "assets/images/s2.png",
-                          height: 200,
-                          width: 180,
+                          height: screenHeight * 0.22,
+                          width: screenWidth * 0.4,
                           fit: BoxFit.contain,
                         ),
                       ),
