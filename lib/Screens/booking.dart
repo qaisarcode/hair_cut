@@ -19,6 +19,7 @@ class _BookingState extends State<Booking> {
     {"label": "On Process", "icon": Icons.content_cut_outlined},
     {"label": "Finished", "icon": Icons.verified_outlined},
   ];
+
   final List<OurTim> ldata = [
     OurTim(
       image: "assets/images/c1.png",
@@ -102,7 +103,6 @@ class _BookingState extends State<Booking> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             // ✅ Step Progress Indicator
-                            // _buildStepIndicator(),
                             Column(
                               children: [
                                 // Icons Row
@@ -243,190 +243,292 @@ class _BookingState extends State<Booking> {
                                 ),
                               ],
                             ),
+
                             SizedBox(height: 30),
-                            NareShops(
-                              image: "assets/images/sho1.png",
-                              sname:
-                                  "Master piece Barbershop - Haircut styling",
-                              duration: "Jogja Expo Centre  (2 km)",
-                              reating: "5.0",
-                            ),
-                            SizedBox(height: 30),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Icon(Icons.location_on, color: AppColor.blue),
-                                Icon(Icons.chat, color: AppColor.blue),
-                                SizedBox(width: 40),
-                                ElevatedButton(
+
+                            // ✅ KEY LOGIC — Finished pe alag content
+                            if (currentStep == 3) ...[
+                              // ── Service Finished Screen ──
+                              SizedBox(height: 40),
+                              Center(
+                                child: Container(
+                                  width: 120,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    color: AppColor.blue,
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  child: Icon(
+                                    Icons.verified,
+                                    color: Colors.white,
+                                    size: 70,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 30),
+                              Center(
+                                child: Text(
+                                  "Service Finished",
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 12),
+                              Center(
+                                child: Text(
+                                  "Lorem Ipsum is simply dummy text of the\nprinting and typesetting industry.",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 60),
+                              SizedBox(
+                                width: double.infinity,
+                                height: 55,
+                                child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: AppColor.blue,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadiusGeometry.circular(10),
+                                      borderRadius: BorderRadius.circular(14),
                                     ),
                                   ),
                                   onPressed: () {},
-                                  child: Text(
-                                    "Cancel",
-                                    style: TextStyle(color: AppColor.white),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Rating & review",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Icon(
+                                        Icons.emoji_emotions_outlined,
+                                        color: Colors.white,
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
-                            SizedBox(height: 10),
-                            currentStep == 1
-                                ? Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 10,
-                                    ),
-                                    width: screenwidth * 3,
-                                    height: 52,
-                                    decoration: BoxDecoration(
-                                      color: AppColor.perpel,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Icon(Icons.timer),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "Time Estimation",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Spacer(),
-                                        Text(
-                                          "-50 Menit",
-                                          style: TextStyle(
-                                            color: AppColor.gray,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                : SizedBox.shrink(),
-                            currentStep == 2
-                                ? Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 10,
-                                    ),
-                                    width: screenwidth * 3,
-                                    height: 52,
-                                    decoration: BoxDecoration(
-                                      color: AppColor.perpel,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Icon(Icons.cut),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "On process",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Spacer(),
-                                        Text(
-                                          "30 Menit",
-                                          style: TextStyle(
-                                            color: AppColor.gray,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                : SizedBox.shrink(),
-                            SizedBox(height: 10),
-                            // ✅ Next/Back Buttons (test ke liye)
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                ElevatedButton(
+                              ),
+                              // ✅ Test button — real app mein hatao
+                              SizedBox(height: 16),
+                              Center(
+                                child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: AppColor.perpel,
                                   ),
-                                  onPressed: currentStep > 0
-                                      ? () => setState(() => currentStep--)
-                                      : null,
+                                  onPressed: () =>
+                                      setState(() => currentStep--),
                                   child: Text(
                                     "Back",
                                     style: TextStyle(color: AppColor.white),
                                   ),
                                 ),
-                                SizedBox(width: 16),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColor.blue,
+                              ),
+                            ] else ...[
+                              // ── Normal Content (Booked / Waiting / On Process) ──
+                              NareShops(
+                                image: "assets/images/sho1.png",
+                                sname:
+                                    "Master piece Barbershop - Haircut styling",
+                                duration: "Jogja Expo Centre  (2 km)",
+                                reating: "5.0",
+                              ),
+                              SizedBox(height: 30),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Icon(Icons.location_on, color: AppColor.blue),
+                                  Icon(Icons.chat, color: AppColor.blue),
+                                  SizedBox(width: 40),
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppColor.blue,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadiusGeometry.circular(10),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: Text(
+                                      "Cancel",
+                                      style: TextStyle(color: AppColor.white),
+                                    ),
                                   ),
-                                  onPressed: currentStep < steps.length - 1
-                                      ? () => setState(() => currentStep++)
-                                      : null,
-                                  child: Text(
-                                    "Next",
-                                    style: TextStyle(color: AppColor.white),
+                                ],
+                              ),
+                              SizedBox(height: 10),
+
+                              // ✅ Waiting card
+                              currentStep == 1
+                                  ? Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 10,
+                                      ),
+                                      width: screenwidth * 3,
+                                      height: 52,
+                                      decoration: BoxDecoration(
+                                        color: AppColor.perpel,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.timer),
+                                          SizedBox(width: 10),
+                                          Text(
+                                            "Time Estimation",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Spacer(),
+                                          Text(
+                                            "-50 Menit",
+                                            style: TextStyle(
+                                              color: AppColor.gray,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  : SizedBox.shrink(),
+
+                              // ✅ On Process card
+                              currentStep == 2
+                                  ? Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 10,
+                                      ),
+                                      width: screenwidth * 3,
+                                      height: 52,
+                                      decoration: BoxDecoration(
+                                        color: AppColor.perpel,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.cut),
+                                          SizedBox(width: 10),
+                                          Text(
+                                            "On process",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Spacer(),
+                                          Text(
+                                            "30 Menit",
+                                            style: TextStyle(
+                                              color: AppColor.gray,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  : SizedBox.shrink(),
+
+                              SizedBox(height: 10),
+
+                              // ✅ Test Buttons — real app mein hatao
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppColor.perpel,
+                                    ),
+                                    onPressed: currentStep > 0
+                                        ? () => setState(() => currentStep--)
+                                        : null,
+                                    child: Text(
+                                      "Back",
+                                      style: TextStyle(color: AppColor.white),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Icon(Icons.calendar_month),
-                                Text("Date & time"),
-                              ],
-                            ),
-                            Text("Sun, 15 Jan  - 08:00 AM"),
-                            SizedBox(height: 30),
-                            Row(
-                              children: [
-                                Icon(Icons.cut),
-                                Text(
-                                  "Service selected",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                                  SizedBox(width: 16),
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppColor.blue,
+                                    ),
+                                    onPressed: currentStep < steps.length - 1
+                                        ? () => setState(() => currentStep++)
+                                        : null,
+                                    child: Text(
+                                      "Next",
+                                      style: TextStyle(color: AppColor.white),
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            ListView.builder(
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: ldata.length,
-                              itemBuilder: (context, index) {
-                                final d = ldata[index];
-                                return OurTim(
-                                  image: d.image,
-                                  name: d.name,
-                                  subtitle: d.subtitle,
-                                  addyou: d.addyou,
-                                );
-                              },
-                            ),
-                            Row(
-                              children: [
-                                Icon(Icons.person),
-                                Text(
-                                  "Master barber",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                                ],
+                              ),
+
+                              Row(
+                                children: [
+                                  Icon(Icons.calendar_month),
+                                  Text("Date & time"),
+                                ],
+                              ),
+                              Text("Sun, 15 Jan  - 08:00 AM"),
+                              SizedBox(height: 30),
+                              Row(
+                                children: [
+                                  Icon(Icons.cut),
+                                  Text(
+                                    "Service selected",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            OurTim(
-                              image: "assets/images/e1.png",
-                              name: "Luther Hammes",
-                              subtitle: "Specialist Haircut",
-                              addyou: "",
-                            ),
+                                ],
+                              ),
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: ldata.length,
+                                itemBuilder: (context, index) {
+                                  final d = ldata[index];
+                                  return OurTim(
+                                    image: d.image,
+                                    name: d.name,
+                                    subtitle: d.subtitle,
+                                    addyou: d.addyou,
+                                  );
+                                },
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.person),
+                                  Text(
+                                    "Master barber",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              OurTim(
+                                image: "assets/images/e1.png",
+                                name: "Luther Hammes",
+                                subtitle: "Specialist Haircut",
+                                addyou: "",
+                              ),
+                            ],
                           ],
                         ),
                       ),
                     ),
+
                     // ── History Tab ──
                     Center(child: Text("History here")),
                   ],
