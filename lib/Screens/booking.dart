@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hair_cut/Screens/add_review.dart';
 import 'package:hair_cut/Utils/nare_shops.dart';
 import 'package:hair_cut/Utils/our_tim.dart';
 import 'package:hair_cut/res/app_color.dart';
@@ -34,6 +35,26 @@ class _BookingState extends State<Booking> {
       subtitle: "Special kids haircut",
       addyou: "\$15",
       icon: null,
+    ),
+  ];
+  final List<NareShops> data = [
+    NareShops(
+      image: "assets/images/sho1.png",
+      sname: "Alana Barbershop - Haircut massage & Spa ",
+      duration: "Banguntapan (5 km)",
+      reating: "4.5",
+    ),
+    NareShops(
+      image: "assets/images/sho2.png",
+      sname: "Hercha Barbershop - Haircut & Styling",
+      duration: "Jalan Kaliurang (8 km)",
+      reating: "5.0",
+    ),
+    NareShops(
+      image: "assets/images/sho3.png",
+      sname: "Barberking - Haircut styling  & massage ",
+      duration: "Jogja Expo Centre (12 km)",
+      reating: "4.5",
     ),
   ];
 
@@ -298,7 +319,14 @@ class _BookingState extends State<Booking> {
                                       borderRadius: BorderRadius.circular(14),
                                     ),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => AddReview(),
+                                      ),
+                                    );
+                                  },
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -530,7 +558,23 @@ class _BookingState extends State<Booking> {
                     ),
 
                     // ── History Tab ──
-                    Center(child: Text("History here")),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        final shop = data[index];
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: NareShops(
+                            image: shop.image,
+                            sname: shop.sname,
+                            duration: shop.duration,
+                            reating: shop.reating,
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
