@@ -27,11 +27,9 @@ class _AddReviewState extends State<AddReview> {
     "Perfect results",
     "Accurate estimate",
   ];
-
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
