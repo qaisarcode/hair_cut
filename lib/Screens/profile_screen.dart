@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hair_cut/Screens/about.dart';
 import 'package:hair_cut/Screens/account.dart';
 import 'package:hair_cut/Screens/help.dart';
+import 'package:hair_cut/Screens/login_screen.dart';
 import 'package:hair_cut/Screens/security.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/profile_card.dart';
@@ -168,7 +169,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
 
                   SizedBox(height: 20),
-                  ElevatedBu(onPressed: () {}, name: "Log out"),
+                  ElevatedBu(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => LoginScreen()),
+                      );
+                    },
+                    name: "Log out",
+                  ),
                 ],
               ),
             ),
