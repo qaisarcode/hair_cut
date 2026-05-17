@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/botom_br.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class AthanicationCode extends StatefulWidget {
   const AthanicationCode({super.key});
@@ -32,7 +33,9 @@ class _AthanicationCodeState extends State<AthanicationCode> {
                 "Please enter the authentication code that\n we have sent to your email",
                 style: TextStyle(color: Color(0xff6B7280)),
               ),
-
+              SizedBox(height: 20),
+              Center(child: MaterialPinField(length: 4)),
+              SizedBox(height: 20),
               ElevatedBu(
                 onPressed: () {
                   Navigator.push(

@@ -5,6 +5,7 @@ import 'package:hair_cut/Screens/registreation_f.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/passtxt_field.dart';
 import 'package:hair_cut/Utils/txt_field.dart';
+import 'package:hair_cut/botom_br.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Container(
             width: double.infinity,
-            height: screenHeight * 0.4,
+            height: screenHeight * 0.49,
             decoration: BoxDecoration(color: Color(0xffF99417)),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 30),
@@ -100,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (_) => HomeScreen()),
+                            MaterialPageRoute(builder: (_) => BotomBr()),
                           );
                         },
                         name: "Login",
