@@ -50,11 +50,9 @@ class _OnbordingScreenState extends State<OnbordingScreen> {
   @override
   Widget build(BuildContext context) {
     bool isLastPage = currentIndex == data.length - 1;
-
     return Scaffold(
       body: Stack(
         children: [
-          // ── Sirf image slide hogi ──────────────────────────
           PageView.builder(
             controller: pageController,
             itemCount: data.length,
@@ -79,7 +77,6 @@ class _OnbordingScreenState extends State<OnbordingScreen> {
             },
           ),
 
-          // ── Neecha card — bilkul fixed rahega ─────────────
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(

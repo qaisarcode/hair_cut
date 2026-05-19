@@ -66,7 +66,7 @@ class _BookingState extends State<Booking> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: AppColor.white),
+          automaticallyImplyLeading: false,
           backgroundColor: AppColor.blue,
           title: Row(
             children: [

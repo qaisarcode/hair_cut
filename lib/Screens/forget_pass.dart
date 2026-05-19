@@ -39,7 +39,7 @@ class _ForgetPassState extends State<ForgetPass> {
               SizedBox(height: 30),
               ElevatedBu(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (_) => AthanicationCode()),
                   );

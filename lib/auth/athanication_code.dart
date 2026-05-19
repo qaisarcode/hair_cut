@@ -38,7 +38,7 @@ class _AthanicationCodeState extends State<AthanicationCode> {
               SizedBox(height: 20),
               ElevatedBu(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (_) => BotomBr()),
                   );

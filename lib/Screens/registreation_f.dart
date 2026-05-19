@@ -65,7 +65,7 @@ class _RegistreationFState extends State<RegistreationF> {
                 SizedBox(height: 20),
                 ElevatedBu(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (_) => AthanicationCode()),
                     );
@@ -81,7 +81,7 @@ class _RegistreationFState extends State<RegistreationF> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (_) => LoginScreen()),
                         );
