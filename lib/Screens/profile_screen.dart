@@ -6,7 +6,9 @@ import 'package:hair_cut/Screens/login_screen.dart';
 import 'package:hair_cut/Screens/security.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/profile_card.dart';
+import 'package:hair_cut/provider/darkmode_provider.dart';
 import 'package:hair_cut/res/app_color.dart';
+import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -17,6 +19,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   bool notification = false;
+  bool dark = false;
 
   // ✅ List mein screen bhi hai
   final List<Map<String, dynamic>> data = [
@@ -29,6 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    final thmechanger = Provider.of<DarkmodeProvider>(context, listen: true);
 
     return Scaffold(
       appBar: AppBar(
@@ -137,6 +141,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Setting", style: TextStyle(color: AppColor.gray)),
+                  ProfileCard(
+                    name: "Dark/Light",
+                    showSwitch: true,
+                    switchValue: thmechanger.thmemode == ThemeMode.dark,
+                    onSwitchChanged: (value) {
+                      thmechanger.settheme(
+                        value ? ThemeMode.dark : ThemeMode.light,
+                      );
+                    },
+                  ),
 
                   // ✅ Notification switch — alag rakha
                   ProfileCard(

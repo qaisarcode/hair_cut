@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class NameCon extends StatelessWidget {
   final String name;
   bool iselectd = false;

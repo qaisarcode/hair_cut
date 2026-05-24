@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hair_cut/Screens/forget_pass.dart';
-import 'package:hair_cut/Screens/home_screen.dart';
+
 import 'package:hair_cut/Screens/registreation_f.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/passtxt_field.dart';
