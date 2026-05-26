@@ -213,7 +213,9 @@ class _BookingState extends State<Booking> {
                                                 ? [
                                                     BoxShadow(
                                                       color: Colors.orange
-                                                          .withOpacity(0.4),
+                                                          .withValues(
+                                                            alpha: 0.4,
+                                                          ),
                                                       blurRadius: 6,
                                                       spreadRadius: 2,
                                                     ),
@@ -558,22 +560,25 @@ class _BookingState extends State<Booking> {
                     ),
 
                     // ── History Tab ──
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: data.length,
-                      itemBuilder: (context, index) {
-                        final shop = data[index];
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 12),
-                          child: NareShops(
-                            image: shop.image,
-                            sname: shop.sname,
-                            duration: shop.duration,
-                            reating: shop.reating,
-                          ),
-                        );
-                      },
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: data.length,
+                        itemBuilder: (context, index) {
+                          final shop = data[index];
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 12),
+                            child: NareShops(
+                              image: shop.image,
+                              sname: shop.sname,
+                              duration: shop.duration,
+                              reating: shop.reating,
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),

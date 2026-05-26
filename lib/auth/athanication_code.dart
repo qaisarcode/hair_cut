@@ -14,43 +14,48 @@ class AthanicationCode extends StatefulWidget {
 class _AthanicationCodeState extends State<AthanicationCode> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 125, left: 18, right: 18),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Authentication",
-                style: TextStyle(
-                  color: Color(0xff363062),
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 125, left: 18, right: 18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Authentication",
+                  style: TextStyle(
+                    color: Color(0xff363062),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                "Please enter the authentication code that\n we have sent to your email",
-                style: TextStyle(color: Color(0xff6B7280)),
-              ),
-              SizedBox(height: 20),
-              Center(child: MaterialPinField(length: 4)),
-              SizedBox(height: 20),
-              ElevatedBu(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (_) => BotomBr()),
-                  );
-                },
-                name: "Send",
-              ),
-              SizedBox(height: 10),
-              Align(
-                alignment: Alignment.center,
-                child: Text('Have not receive code?'),
-              ),
-            ],
+                Text(
+                  "Please enter the authentication code that\n we have sent to your email",
+                  style: TextStyle(color: Color(0xff6B7280)),
+                ),
+                SizedBox(height: 20),
+                Center(child: MaterialPinField(length: 4)),
+                SizedBox(height: 20),
+                ElevatedBu(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (_) => BotomBr()),
+                    );
+                  },
+                  name: "Send",
+                ),
+                SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text('Have not receive code?'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hair_cut/provider/darkmode_provider.dart';
+import 'package:hair_cut/provider/passobscure_pprovier.dart';
 import 'package:hair_cut/splach_services/saplash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => DarkmodeProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => DarkmodeProvider()),
+        ChangeNotifierProvider(create: (_) => PassobscurePprovier()),
+      ],
       child: Builder(
         builder: (context) {
           final thmechanger = Provider.of<DarkmodeProvider>(context);

@@ -137,63 +137,65 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Setting", style: TextStyle(color: AppColor.gray)),
-                  ProfileCard(
-                    name: "Dark/Light",
-                    showSwitch: true,
-                    switchValue: thmechanger.thmemode == ThemeMode.dark,
-                    onSwitchChanged: (value) {
-                      thmechanger.settheme(
-                        value ? ThemeMode.dark : ThemeMode.light,
-                      );
-                    },
-                  ),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Setting", style: TextStyle(color: AppColor.gray)),
+                    ProfileCard(
+                      name: "Dark/Light",
+                      showSwitch: true,
+                      switchValue: thmechanger.thmemode == ThemeMode.dark,
+                      onSwitchChanged: (value) {
+                        thmechanger.settheme(
+                          value ? ThemeMode.dark : ThemeMode.light,
+                        );
+                      },
+                    ),
 
-                  // ✅ Notification switch — alag rakha
-                  ProfileCard(
-                    name: "Notification",
-                    showSwitch: true,
-                    switchValue: notification,
-                    onSwitchChanged: (value) {
-                      setState(() => notification = value);
-                    },
-                  ),
+                    // ✅ Notification switch — alag rakha
+                    ProfileCard(
+                      name: "Notification",
+                      showSwitch: true,
+                      switchValue: notification,
+                      onSwitchChanged: (value) {
+                        setState(() => notification = value);
+                      },
+                    ),
 
-                  // ✅ Baaki cards — ontap ke saath
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: data.length,
-                    itemBuilder: (context, index) {
-                      return ProfileCard(
-                        name: data[index]["name"],
-                        ontap: () {
-                          // ✅ Yahan navigate hoga
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => data[index]["screen"],
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  ),
+                    // ✅ Baaki cards — ontap ke saath
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        return ProfileCard(
+                          name: data[index]["name"],
+                          ontap: () {
+                            // ✅ Yahan navigate hoga
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => data[index]["screen"],
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
 
-                  SizedBox(height: 20),
-                  ElevatedBu(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => LoginScreen()),
-                      );
-                    },
-                    name: "Log out",
-                  ),
-                ],
+                    SizedBox(height: 20),
+                    ElevatedBu(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => LoginScreen()),
+                        );
+                      },
+                      name: "Log out",
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

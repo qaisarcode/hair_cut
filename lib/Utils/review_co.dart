@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ReviewCo extends StatelessWidget {
   final String image;
   final String name;
