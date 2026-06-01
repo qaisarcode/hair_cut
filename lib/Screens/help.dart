@@ -47,11 +47,19 @@ class _HelpState extends State<Help> {
                   SizedBox(height: 10),
                   Align(alignment: Alignment.bottomLeft, child: Text("Name")),
                   SizedBox(height: 10),
-                  TxtField(hintText: "Joe Samanta", icon: Icons.person),
+                  TxtField(
+                    hintText: "Joe Samanta",
+                    icon: Icons.person,
+                    onchangeed: (p0) {},
+                  ),
                   SizedBox(height: 10),
                   Align(alignment: Alignment.bottomLeft, child: Text("Email")),
                   SizedBox(height: 10),
-                  TxtField(hintText: "Joesamanta@gmail.com", icon: Icons.email),
+                  TxtField(
+                    hintText: "Joesamanta@gmail.com",
+                    icon: Icons.email,
+                    onchangeed: (p0) {},
+                  ),
                   SizedBox(height: 10),
                   Align(
                     alignment: Alignment.bottomLeft,

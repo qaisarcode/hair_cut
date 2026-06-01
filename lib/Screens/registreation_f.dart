@@ -42,10 +42,18 @@ class _RegistreationFState extends State<RegistreationF> {
                   SizedBox(height: 30),
                   Text("Name", style: TextStyle(color: Color(0xff111827))),
 
-                  TxtField(hintText: "Joe Samanta", icon: Icons.person),
+                  TxtField(
+                    hintText: "Joe Samanta",
+                    icon: Icons.person,
+                    onchangeed: (p0) {},
+                  ),
                   SizedBox(height: 20),
                   Text("Email", style: TextStyle(color: Color(0xff363062))),
-                  TxtField(hintText: "Joesamanta@gmail.com", icon: Icons.email),
+                  TxtField(
+                    hintText: "Joesamanta@gmail.com",
+                    icon: Icons.email,
+                    onchangeed: (p0) {},
+                  ),
                   SizedBox(height: 20),
                   Text(
                     "Create Password",

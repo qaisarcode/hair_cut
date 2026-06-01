@@ -56,7 +56,11 @@ class _AccountState extends State<Account> {
                 ),
                 Align(alignment: Alignment.bottomLeft, child: Text("Email")),
                 SizedBox(height: 10),
-                TxtField(hintText: "Joesamanta@gmail.com", icon: Icons.email),
+                TxtField(
+                  hintText: "Joesamanta@gmail.com",
+                  icon: Icons.email,
+                  onchangeed: (p0) {},
+                ),
                 SizedBox(height: 10),
                 Align(alignment: Alignment.bottomLeft, child: Text("Password")),
                 SizedBox(height: 10),

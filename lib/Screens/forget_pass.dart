@@ -39,7 +39,11 @@ class _ForgetPassState extends State<ForgetPass> {
                 SizedBox(height: 20),
                 Text("Email", style: TextStyle(color: Color(0xff111827))),
                 SizedBox(height: 10),
-                TxtField(hintText: "Joesamanta@gmail.com", icon: Icons.email),
+                TxtField(
+                  hintText: "Joesamanta@gmail.com",
+                  icon: Icons.email,
+                  onchangeed: (p0) {},
+                ),
                 SizedBox(height: 30),
                 ElevatedBu(
                   onPressed: () {

@@ -1,3 +1,3 @@
 import 'package:flutter/foundation.dart';
 
-class Dataprovider with  ChangeNotifier {}
+class Dataprovider with ChangeNotifier {}

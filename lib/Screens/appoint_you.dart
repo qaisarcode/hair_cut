@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hair_cut/Screens/booking.dart';
 import 'package:hair_cut/Screens/invoice.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/nare_shops.dart';
 import 'package:hair_cut/Utils/our_tim.dart';
+import 'package:hair_cut/provider/booking_provider.dart';
 
 import 'package:hair_cut/res/app_color.dart';
+import 'package:provider/provider.dart';
 
 class AppointYou extends StatefulWidget {
   const AppointYou({super.key});
@@ -33,6 +36,9 @@ class _AppointYouState extends State<AppointYou> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    final Booking = context.watch<BookingProvider>();
+    final String formatedate =
+        "${Booking.today.day}/ ${Booking.today.month}/ ${Booking.today.year}";
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(0xffFFFFFF)),
@@ -92,7 +98,9 @@ class _AppointYouState extends State<AppointYou> {
                             ],
                           ),
 
-                          Text("Sun, 15 Jan  - 08:00 AM"),
+                          Text(
+                            "$formatedate -${Booking.selectedtimes.isEmpty ? "No time selected" : Booking.selectedtimes}",
+                          ),
                           SizedBox(height: 20),
                           Row(
                             children: [Icon(Icons.cut), Text("Service lits")],
@@ -105,9 +113,10 @@ class _AppointYouState extends State<AppointYou> {
                               final d = data[index];
                               return OurTim(
                                 image: d.image,
-                                name: d.name,
-                                subtitle: d.subtitle,
-                                addyou: d.addyou,
+                                name: Booking.selectedservicesname,
+                                subtitle: Booking.selectedservicesname,
+                                addyou: Booking.selectedservicesprice,
+                                icon: null,
                               );
                             },
                           ),
@@ -169,20 +178,26 @@ class _AppointYouState extends State<AppointYou> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Basic haircut",
+                                Booking.selectedservicesname,
                                 style: TextStyle(fontSize: 16),
                               ),
-                              Text("\$20", style: TextStyle(fontSize: 16)),
+                              Text(
+                                Booking.selectedservicesprice,
+                                style: TextStyle(fontSize: 16),
+                              ),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Extra massage",
+                                Booking.selectedservicesname,
                                 style: TextStyle(fontSize: 16),
                               ),
-                              Text("\$10", style: TextStyle(fontSize: 16)),
+                              Text(
+                                Booking.selectedservicesprice,
+                                style: TextStyle(fontSize: 16),
+                              ),
                             ],
                           ),
                           SizedBox(height: 10),

@@ -6,8 +6,6 @@ import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/passtxt_field.dart';
 import 'package:hair_cut/Utils/txt_field.dart';
 import 'package:hair_cut/botom_br.dart';
-import 'package:hair_cut/provider/auth_proviider.dart';
-import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -76,14 +74,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(color: Color(0xff363062)),
                         ),
                         SizedBox(height: 10),
-                        Consumer<AuthProviider>(
-                          builder: (context, value, child) {
-                            return TxtField(
-                              hintText: "Joesamanta@gmail.com",
-                              icon: Icons.email,
-                              onchangeed: (value) {},
-                            );
-                          },
+                        TxtField(
+                          hintText: "Joesamanta@gmail.com",
+                          icon: Icons.email,
+                          onchangeed: (value) {},
                         ),
                         SizedBox(height: 20),
                         Text(

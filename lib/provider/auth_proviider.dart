@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 
-class EmailProvider with ChangeNotifier {
+class AuthProviider with ChangeNotifier {
   String? _email;
   String? _password;
-  bool _isloding = false;
+  final bool _isloding = false;
 
   String? get email => _email;
   String? get password => _password;
-
+  bool get isLoading => _isloding;
   void setemail(String value) {
     _email = value;
     notifyListeners();

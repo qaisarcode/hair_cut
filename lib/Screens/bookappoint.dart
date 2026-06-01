@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hair_cut/Screens/appoint_you.dart';
 import 'package:hair_cut/Utils/elevated_bu.dart';
+import 'package:hair_cut/provider/booking_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Bookappoint extends StatefulWidget {
@@ -49,6 +51,7 @@ class _BookappointState extends State<Bookappoint> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    final booking = Provider.of<BookingProvider>(context);
     return Scaffold(
       appBar: AppBar(title: const Text("Book Appointment")),
       body: SingleChildScrollView(
@@ -65,15 +68,15 @@ class _BookappointState extends State<Bookappoint> {
             ),
             const SizedBox(height: 12),
             TableCalendar(
-              focusedDay: focusedDay,
+              focusedDay: booking.focustoday,
               firstDay: DateTime(2020),
               lastDay: DateTime(2030),
-              selectedDayPredicate: (day) => isSameDay(today, day),
+              selectedDayPredicate: (day) => isSameDay(booking.today, day),
               onDaySelected: (selectedDay, focused) {
-                setState(() {
-                  today = selectedDay;
-                  focusedDay = focused;
-                });
+                context.read<BookingProvider>().updatedate(
+                  selectedDay,
+                  focused,
+                );
               },
               headerStyle: const HeaderStyle(
                 formatButtonVisible: false,
@@ -109,13 +112,15 @@ class _BookappointState extends State<Bookappoint> {
                 itemCount: services.length,
                 itemBuilder: (context, index) {
                   final service = services[index];
-                  bool isSelected = selectedIndex == index;
+                  bool isSelected = booking.selectedSrevicesindex == index;
 
                   return GestureDetector(
                     onTap: () {
-                      setState(() {
-                        selectedIndex = index;
-                      });
+                      context.read<BookingProvider>().updatteservices(
+                        index,
+                        service['name'],
+                        service["price"],
+                      );
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 20),
@@ -178,14 +183,15 @@ class _BookappointState extends State<Bookappoint> {
               children: List.generate(timeSlots.length, (index) {
                 final slot = timeSlots[index];
                 final bool isAvailable = slot["available"];
-                final bool isSelected = _selectedTime == index;
+                final bool isSelected = booking.selectedTime == index;
 
                 return GestureDetector(
                   onTap: isAvailable
                       ? () {
-                          setState(() {
-                            _selectedTime = index;
-                          });
+                          context.read<BookingProvider>().updatetime(
+                            index,
+                            slot["time"],
+                          );
                         }
                       : null,
                   child: Container(
@@ -244,8 +250,8 @@ class _BookappointState extends State<Bookappoint> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(services[selectedIndex]["name"]),
-                      Text(services[selectedIndex]["price"]),
+                      Text(services[booking.selectedSrevicesindex]["name"]),
+                      Text(services[booking.selectedSrevicesindex]["price"]),
                     ],
                   ),
                   const Divider(height: 20),

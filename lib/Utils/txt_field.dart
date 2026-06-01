@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 class TxtField extends StatelessWidget {
   final String hintText;
   final IconData icon;
-  const TxtField({super.key, required this.hintText, required this.icon});
+
+  final Function(bool) onchangeed;
+
+  const TxtField({
+    super.key,
+    required this.hintText,
+    required this.icon,
+    required this.onchangeed,
+  });
 
   @override
   Widget build(BuildContext context) {
