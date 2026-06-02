@@ -120,6 +120,7 @@ class _BookappointState extends State<Bookappoint> {
                         index,
                         service['name'],
                         service["price"],
+                        service["image"],
                       );
                     },
                     child: Padding(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hair_cut/provider/auth_proviider.dart';
 import 'package:hair_cut/provider/booking_provider.dart';
 import 'package:hair_cut/provider/darkmode_provider.dart';
+import 'package:hair_cut/provider/home_screen_provider.dart';
 import 'package:hair_cut/provider/passobscure_pprovier.dart';
 import 'package:hair_cut/splach_services/saplash_screen.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PassobscurePprovier()),
         ChangeNotifierProvider(create: (_) => AuthProviider()),
         ChangeNotifierProvider(create: (_) => BookingProvider()),
+        ChangeNotifierProvider(create: (_) => HomeScreenProvider()),
       ],
       child: Builder(
         builder: (context) {

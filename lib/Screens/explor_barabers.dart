@@ -19,36 +19,42 @@ class _ExplorBarabersState extends State<ExplorBarabers> {
       sname: "Alana Barbershop - Haircut massage & Spa ",
       duration: "Banguntapan (5 km)",
       reating: "4.5",
+      onTap: () {},
     ),
     NareShops(
       image: "assets/images/sho2.png",
       sname: "Hercha Barbershop - Haircut & Styling",
       duration: "Jalan Kaliurang (8 km)",
       reating: "5.0",
+      onTap: () {},
     ),
     NareShops(
       image: "assets/images/sho3.png",
       sname: "Barberking - Haircut styling  & massage ",
       duration: "Jogja Expo Centre (12 km)",
       reating: "4.5",
+      onTap: () {},
     ),
     NareShops(
       image: "assets/images/sho4.png",
       sname: "Varcity Barbershop Jogja ex The Varcher ",
       duration: "Condongcatur (10 km)",
       reating: "4.5",
+      onTap: () {},
     ),
     NareShops(
       image: "assets/images/sho5.png",
       sname: "Twinsky Monkey Barber & Men Stuff",
       duration: "Jl Taman Siswa (8 km)",
       reating: "5.0",
+      onTap: () {},
     ),
     NareShops(
       image: "assets/images/sho6.png",
       sname: "Barberman - Haircut styling & massage ",
       duration: "J-Walk Centre  (17 km)",
       reating: "4.5",
+      onTap: () {},
     ),
   ];
 
@@ -185,6 +191,7 @@ class _ExplorBarabersState extends State<ExplorBarabers> {
                                     sname: shop.sname,
                                     duration: shop.duration,
                                     reating: shop.reating,
+                                    onTap: () {},
                                   ),
                                 );
                               },

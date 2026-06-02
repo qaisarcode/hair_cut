@@ -43,18 +43,21 @@ class _BookingState extends State<Booking> {
       sname: "Alana Barbershop - Haircut massage & Spa ",
       duration: "Banguntapan (5 km)",
       reating: "4.5",
+      onTap: () {},
     ),
     NareShops(
       image: "assets/images/sho2.png",
       sname: "Hercha Barbershop - Haircut & Styling",
       duration: "Jalan Kaliurang (8 km)",
       reating: "5.0",
+      onTap: () {},
     ),
     NareShops(
       image: "assets/images/sho3.png",
       sname: "Barberking - Haircut styling  & massage ",
       duration: "Jogja Expo Centre (12 km)",
       reating: "4.5",
+      onTap: () {},
     ),
   ];
 
@@ -372,6 +375,7 @@ class _BookingState extends State<Booking> {
                                     "Master piece Barbershop - Haircut styling",
                                 duration: "Jogja Expo Centre  (2 km)",
                                 reating: "5.0",
+                                onTap: () {},
                               ),
                               SizedBox(height: 30),
                               Row(
@@ -575,6 +579,7 @@ class _BookingState extends State<Booking> {
                               sname: shop.sname,
                               duration: shop.duration,
                               reating: shop.reating,
+                              onTap: () {},
                             ),
                           );
                         },

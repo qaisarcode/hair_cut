@@ -18,9 +18,9 @@ class RecomandedShopCo extends StatelessWidget {
     required this.location,
     required this.reating,
     required this.buttonname,
-    this.icon = null,
-    this.licon = null,
-    this.ricon = null,
+    this.icon,
+    this.licon,
+    this.ricon,
     this.onTap,
   });
 

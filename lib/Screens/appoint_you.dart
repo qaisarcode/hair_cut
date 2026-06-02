@@ -59,10 +59,11 @@ class _AppointYouState extends State<AppointYou> {
               child: Column(
                 children: [
                   NareShops(
-                    image: "assets/images/sho1.png",
-                    sname: "Master piece Barbershop - Haircut styling",
-                    duration: "Jogja Expo Centre  (2 km)",
-                    reating: "5.0",
+                    image: Booking.shop,
+                    sname: Booking.shopname,
+                    duration: Booking.shoplocation,
+                    reating: Booking.shopraeting,
+                    onTap: () {},
                   ),
                 ],
               ),
@@ -110,9 +111,8 @@ class _AppointYouState extends State<AppointYou> {
                             physics: NeverScrollableScrollPhysics(),
                             itemCount: data.length,
                             itemBuilder: (context, index) {
-                              final d = data[index];
                               return OurTim(
-                                image: d.image,
+                                image: Booking.selectedservicesimage,
                                 name: Booking.selectedservicesname,
                                 subtitle: Booking.selectedservicesname,
                                 addyou: Booking.selectedservicesprice,

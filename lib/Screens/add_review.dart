@@ -51,6 +51,7 @@ class _AddReviewState extends State<AddReview> {
                   sname: "Twinsky Monkey Barber & Men Stuff",
                   duration: "Jogja Expo Centre  (2 km)",
                   reating: "5.0",
+                  onTap: () {},
                 ),
               ],
             ),

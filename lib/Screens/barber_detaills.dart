@@ -4,7 +4,9 @@ import 'package:hair_cut/Utils/elevated_bu.dart';
 import 'package:hair_cut/Utils/our_tim.dart';
 import 'package:hair_cut/Utils/recomanded_shop_co.dart';
 import 'package:hair_cut/Utils/review_co.dart';
+import 'package:hair_cut/provider/booking_provider.dart';
 import 'package:hair_cut/res/app_images.dart';
+import 'package:provider/provider.dart';
 
 class BarberDetaills extends StatefulWidget {
   const BarberDetaills({super.key});
@@ -491,6 +493,13 @@ class _BarberDetaillsState extends State<BarberDetaills> {
                 padding: const EdgeInsets.symmetric(horizontal: 18),
                 child: ElevatedBu(
                   onPressed: () {
+                    context.read<BookingProvider>().updateshop(
+                      "assets/images/shop1.png",
+                      "Master piece Barbershop - Haircut styling", // shop naam
+                      "Jogja Expo Centre (2 km)", // location
+                      "5.0",
+                    );
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Bookappoint()),
